@@ -58,6 +58,10 @@ python3 -m http.server 8000
 
 > Lanjut merilis sisanya berurutan: **(1) Tantangan Mingguan** — 3 prompt dikumpulkan lewat form, tersimpan, kartu ikut ter-update; **(2) Tantangan Bulanan** — 4 tahap checklist mini-project chatbot; **(3) XP agregat** — XP modul, quiz, mingguan, dan bulanan dijumlahkan di satu rumus dan tampil di Tantangan & Achievement; **(4) Pencarian sungguhan** — ketik di topbar → muncul hasil kelas/artikel/modul, Enter membuka hasil teratas. Sisipannya: saat pengecekan, tombol "Lanjut/Mulai" di halaman Kelas ternyata mati (atribut handler hilang karena bug skrip penomoran) — atribut `data-cls` dipulihkan supaya tombolnya kembali berfungsi.
 
+### Prompt 06 — Halaman tumpuk semuanya
+
+> Screenshot pengguna menunjukkan di bawah halaman Kelas muncul juga "Jelajah AI" dst — semua halaman nav tumpuk jadi satu. Akibatnya klik "Lanjut/Mulai" membuka halaman detail yang jatuh jauh di bawah tumpukan, terasa seperti tidak ada yang terjadi dan membingungkan("materinya yang mana?"). Akarnya: CSS `.page{display:flex}` menimpa style bawaan browser untuk atribut `hidden`. Perbaikan: satu aturan global `[hidden]{display:none !important}` — kini hanya satu halaman tampil dan klik navigasi bekerja seperti mestinya.
+
 ---
 
 *Dibuat bersama OpenCode · Z.ai GLM*
