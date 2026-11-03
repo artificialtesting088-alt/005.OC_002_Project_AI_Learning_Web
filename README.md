@@ -50,6 +50,10 @@ python3 -m http.server 8000
 
 > Saat klik apa saja yang muncul hanya toast "sebentar lagi, ya!" — terlalu sering dan terasa tidak berguna. Ganti polanya: tombol-tombol yang arahnya jelas sebaiknya **mengantar langsung ke halaman terkait** (Mulai Belajar → Kelas, Gabung Komunitas → Komunitas, Lihat Semua → Achievement, dsb.), dan untuk yang belum ada halamannya cukup pesan singkat sesuai konteks — bukan spam pesan yang sama di mana-mana.
 
+### Prompt 04 — Isi materi sebenarnya
+
+> Materi di dalam kelas/artikel/quiz masih kosong (klik tombolnya hanya menampilkan "segera hadir"). Isi ketiganya berurutan: **(1) Materi kelas** — halaman detail kelas + isi 21 modul (pembahasan, poin penting, contoh), per modul bisa ditandai selesai dan progresnya menyambung ke Beranda & kartu kelas; **(2) Artikel Jelajah AI** — halaman baca penuh untuk 6 artikel; **(3) Quiz Tantangan** — 5 soal interaktif dengan feedback per jawaban, skor akhir, XP, dan skor terbaik yang tersimpan. Semuanya dibangun di atas data konten tersendiri (`content.js`) supaya rapi untuk dikembangkan.
+
 ---
 
 *Dibuat bersama OpenCode · Z.ai GLM*
