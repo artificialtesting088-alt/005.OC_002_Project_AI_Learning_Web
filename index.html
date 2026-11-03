@@ -99,6 +99,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <input type="text" id="searchInput" placeholder="Cari materi, kelas, atau apa pun…" autocomplete="off">
         <kbd id="kbdHint">⌘ K</kbd>
+        <div class="search-pop" id="searchPop" hidden></div>
       </div>
       <div class="topbar-right">
         <div class="dropdown" id="bellDropdown">
@@ -546,7 +547,7 @@
             <h3>Kenalan dengan AI di Sekitarmu</h3>
             <p>Kenali AI yang sudah ada di hidupmu sehari-hari, lalu bedakan AI, ML, dan LLM.</p>
             <div class="progress-track sm"><div class="progress-fill" style="width:60%"></div></div>
-            <div class="ccard-meta"><small>2.4K peserta</small><button class="ccard-cta" >Lanjut ⌁</button></div>
+            <div class="ccard-meta"><small>2.4K peserta</small><button class="ccard-cta" data-cls="0">Lanjut ⌁</button></div>
           </div>
         </article>
         <article class="ccard card" data-level="pemula">
@@ -558,7 +559,7 @@
             <h3>Prompt Engineering untuk Pemula</h3>
             <p>Ubah pertanyaan biasa jadi prompt yang tajam: peran, konteks, format, batasan.</p>
             <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
-            <div class="ccard-meta"><small>12.4K peserta</small><button class="ccard-cta" >Mulai ⌁</button></div>
+            <div class="ccard-meta"><small>12.4K peserta</small><button class="ccard-cta" data-cls="1">Mulai ⌁</button></div>
           </div>
         </article>
         <article class="ccard card" data-level="pemula">
@@ -570,7 +571,7 @@
             <h3>AI untuk Produktivitas Harian</h3>
             <p>Rapikan jadwal, rangkum dokumen, dan otomatiskan tugas berulang.</p>
             <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
-            <div class="ccard-meta"><small>9.7K peserta</small><button class="ccard-cta" >Mulai ⌁</button></div>
+            <div class="ccard-meta"><small>9.7K peserta</small><button class="ccard-cta" data-cls="2">Mulai ⌁</button></div>
           </div>
         </article>
         <article class="ccard card" data-level="menengah">
@@ -582,7 +583,7 @@
             <h3>Membuat Konten dengan AI</h3>
             <p>Research, draf, dan visual: alur kerja konten yang tetap terasa kamulah yang punya.</p>
             <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
-            <div class="ccard-meta"><small>8.1K peserta</small><button class="ccard-cta" >Mulai ⌁</button></div>
+            <div class="ccard-meta"><small>8.1K peserta</small><button class="ccard-cta" data-cls="3">Mulai ⌁</button></div>
           </div>
         </article>
         <article class="ccard card" data-level="menengah">
@@ -594,7 +595,7 @@
             <h3>Dasar Machine Learning</h3>
             <p>Dari regresi sederhana sampai makna jaringan saraf — tanpa rumus yang bikin pusing dulu.</p>
             <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
-            <div class="ccard-meta"><small>5.2K peserta</small><button class="ccard-cta" >Mulai ⌁</button></div>
+            <div class="ccard-meta"><small>5.2K peserta</small><button class="ccard-cta" data-cls="4">Mulai ⌁</button></div>
           </div>
         </article>
         <article class="ccard card" data-level="lanjutan">
@@ -606,7 +607,7 @@
             <h3>Bangun Chatbot Sederhana</h3>
             <p>Rakit asistenmu sendiri: sengaja kecil, tapi benar-benar jalan di web.</p>
             <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
-            <div class="ccard-meta"><small>3.8K peserta</small><button class="ccard-cta" >Mulai ⌁</button></div>
+            <div class="ccard-meta"><small>3.8K peserta</small><button class="ccard-cta" data-cls="5">Mulai ⌁</button></div>
           </div>
         </article>
       </div>
@@ -770,8 +771,8 @@
             <div><h3>Tantangan Mingguan: 3 Prompt Terbaik</h3><small>Tersisa 3 hari</small></div>
             <span class="xp">+150 XP</span>
           </header>
-          <div class="progress-track sm"><div class="progress-fill" style="width:33%"></div></div>
-          <footer class="ch-foot"><small>1 dari 3 prompt</small><button class="btn btn-soft" data-action="Lanjutkan tantangan">Lanjutkan</button></footer>
+          <div class="progress-track sm"><div class="progress-fill" id="chWFill" style="width:33%"></div></div>
+          <footer class="ch-foot"><small id="chWNote">1 dari 3 prompt</small><button class="btn btn-soft" data-weekly>Kerjakan</button></footer>
         </article>
         <article class="card ch-card">
           <header class="ch-head">
@@ -779,8 +780,8 @@
             <div><h3>Tantangan Bulanan: Mini-Project Chatbot</h3><small>Tersisa 19 hari</small></div>
             <span class="xp">+500 XP</span>
           </header>
-          <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
-          <footer class="ch-foot"><small>Belum mulai</small><button class="btn btn-soft" data-action="Mulai project">Mulai</button></footer>
+          <div class="progress-track sm"><div class="progress-fill" id="chMFill" style="width:0%"></div></div>
+          <footer class="ch-foot"><small id="chMNote">0 dari 4 tahap</small><button class="btn btn-soft" data-monthly>Mulai</button></footer>
         </article>
         <article class="card ch-card done">
           <header class="ch-head">
@@ -801,7 +802,7 @@
         </div>
       </header>
       <div class="ach-stats">
-        <article class="card ach-stat"><strong>1.250</strong><span>Total XP</span></article>
+        <article class="card ach-stat"><strong id="achXP">1.250</strong><span>Total XP</span></article>
         <article class="card ach-stat"><strong>7 hari</strong><span>Streak belajar</span></article>
         <article class="card ach-stat"><strong>3/18</strong><span>Badge terkumpul</span></article>
         <article class="card ach-stat"><strong>1/6</strong><span>Kelas selesai</span></article>
@@ -884,6 +885,8 @@
     <section class="page detail-page" id="pg-modul" hidden></section>
     <section class="page detail-page" id="pg-artikel" hidden></section>
     <section class="page detail-page" id="pg-quiz" hidden></section>
+    <section class="page detail-page" id="pg-weekly" hidden></section>
+    <section class="page detail-page" id="pg-monthly" hidden></section>
 
       <footer class="foot">
         <p>✦ AI Learn — dibuat dengan cyan <span class="cy">#38E1FF</span>, langit senja, dan sedikit neon.</p>

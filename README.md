@@ -54,6 +54,10 @@ python3 -m http.server 8000
 
 > Materi di dalam kelas/artikel/quiz masih kosong (klik tombolnya hanya menampilkan "segera hadir"). Isi ketiganya berurutan: **(1) Materi kelas** — halaman detail kelas + isi 21 modul (pembahasan, poin penting, contoh), per modul bisa ditandai selesai dan progresnya menyambung ke Beranda & kartu kelas; **(2) Artikel Jelajah AI** — halaman baca penuh untuk 6 artikel; **(3) Quiz Tantangan** — 5 soal interaktif dengan feedback per jawaban, skor akhir, XP, dan skor terbaik yang tersimpan. Semuanya dibangun di atas data konten tersendiri (`content.js`) supaya rapi untuk dikembangkan.
 
+### Prompt 05 — Lengkapi tantangan, XP, dan pencarian (+ bugfix)
+
+> Lanjut merilis sisanya berurutan: **(1) Tantangan Mingguan** — 3 prompt dikumpulkan lewat form, tersimpan, kartu ikut ter-update; **(2) Tantangan Bulanan** — 4 tahap checklist mini-project chatbot; **(3) XP agregat** — XP modul, quiz, mingguan, dan bulanan dijumlahkan di satu rumus dan tampil di Tantangan & Achievement; **(4) Pencarian sungguhan** — ketik di topbar → muncul hasil kelas/artikel/modul, Enter membuka hasil teratas. Sisipannya: saat pengecekan, tombol "Lanjut/Mulai" di halaman Kelas ternyata mati (atribut handler hilang karena bug skrip penomoran) — atribut `data-cls` dipulihkan supaya tombolnya kembali berfungsi.
+
 ---
 
 *Dibuat bersama OpenCode · Z.ai GLM*

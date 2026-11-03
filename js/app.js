@@ -112,6 +112,7 @@ document.addEventListener('click', e => {
   $$('.dropdown.open').forEach(d => {
     if (!d.contains(e.target)) d.classList.remove('open');
   });
+  if (!e.target.closest('#searchBox')) hideSearchPop();
 
   const openBtn = e.target.closest('[data-openmod]');
   if (openBtn) {
@@ -128,6 +129,19 @@ document.addEventListener('click', e => {
 
   const quizBtn = e.target.closest('[data-quiz]');
   if (quizBtn) { openQuiz(); return; }
+
+  if (e.target.closest('[data-weekly]')) { openWeekly(); return; }
+  if (e.target.closest('[data-monthly]')) { openMonthly(); return; }
+
+  const srBtn = e.target.closest('[data-sr]');
+  if (srBtn) {
+    hideSearchPop();
+    const v = srBtn.dataset.sr.split(':');
+    if (v[0] === 'k') openKursus(+v[1]);
+    else if (v[0] === 'a') openArtikel(+v[1]);
+    else openModul(+v[1], +v[2]);
+    return;
+  }
 
   const modBtn = e.target.closest('[data-mod]');
   if (modBtn) { openModul(+modBtn.dataset.mod); return; }
@@ -163,13 +177,55 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     setSidebar(false);
     $$('.dropdown.open').forEach(d => d.classList.remove('open'));
+    hideSearchPop();
   }
 });
 input.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && input.value.trim()) {
-    showToast(`⌕ Mencari <span class="t-sp">"${esc(input.value.trim())}"</span>… (demo)`);
-  }
+  if (e.key !== 'Enter') return;
+  const first = $('#searchPop [data-sr]');
+  if (!input.value.trim()) return;
+  if (first) first.click();
+  else showToast('⌕ Tidak ada hasil untuk itu — coba kata lain');
 });
+
+const SEARCH_INDEX = [
+  ...CONTENT.classes.map((c, i) => ({
+    t: c.title, k: 'Kelas', sr: `k:${i}`,
+    needle: (c.title + ' ' + c.desc).toLowerCase()
+  })),
+  ...CONTENT.articles.map((a, i) => ({
+    t: a.title, k: 'Artikel', sr: `a:${i}`,
+    needle: (a.title + ' ' + a.hero).toLowerCase()
+  })),
+  ...CONTENT.classes.flatMap((c, ci) =>
+    c.parts.map((p, pi) => ({
+      t: p.t, k: 'Modul · ' + c.title, sr: `m:${ci}:${pi}`,
+      needle: p.t.toLowerCase()
+    })))
+];
+
+function hideSearchPop() {
+  const pop = $('#searchPop');
+  if (pop) { pop.hidden = true; pop.innerHTML = ''; }
+}
+
+function runSearch(term) {
+  const pop = $('#searchPop');
+  const q = term.trim().toLowerCase();
+  if (q.length < 2) { hideSearchPop(); return; }
+  const hits = SEARCH_INDEX.filter(x => x.needle.includes(q)).slice(0, 6);
+  pop.hidden = false;
+  pop.innerHTML = hits.length
+    ? hits.map(h => `
+      <button class="sr-item" data-sr="${h.sr}">
+        <span class="sr-tag">${h.k}</span>
+        <span class="sr-title">${esc(h.t)}</span>
+        ${ARROW_L.replace('d="M19 12H5M11 18l-6-6 6-6"', 'd="M9 6l6 6-6 6"')}
+      </button>`).join('')
+    : `<div class="sr-empty">Tidak ada hasil untuk "${esc(term.trim())}"</div>`;
+}
+input.addEventListener('input', () => runSearch(input.value));
+input.addEventListener('focus', () => runSearch(input.value));
 
 function animateNumber(el, target, suffix, duration = 1400) {
   const start = performance.now();
@@ -506,15 +562,152 @@ function finishQuiz() {
   showToast(isRecord ? `✦ Skor baru: ${score}/${CONTENT.quiz.length} — +${xp} XP!` : `✦ Skor ${score}/${CONTENT.quiz.length}. Rekor: ${best}.`);
 }
 
+const WEEK_KEY = 'ailearn-weekly';
+const MON_KEY = 'ailearn-monthly';
+
+const MON_STEPS = [
+  { t: 'Rancang arsitektur mini', d: 'Sebutkan UI, mesin, dan memorinya — lalu tetapkan 3 kasus yang akan dijawab sempurna oleh botmu.' },
+  { t: 'Bangun chat UI', d: 'Kotak chat sederhana: input pesan, tombol kirim, daftar percakapan.' },
+  { t: 'Hubungkan ke LLM (dengan aman)', d: 'API key tersimpan di sisi server — jangan pernah ekspos ke frontend; system prompt menentukan kepribadian bot.' },
+  { t: 'Uji dengan pengguna nyata', d: 'Minta 10 pertanyaan nyata dari temanmu; catat yang gagal dan update system prompt-nya.' }
+];
+
+function totalXP() {
+  const best = store.get('ailearn-quiz-best', 0);
+  const mod = store.get('ailearn-xpm', 0);
+  const wk = (store.get(WEEK_KEY, []).length >= 3) ? 150 : 0;
+  const mon = (store.get(MON_KEY, []).length >= MON_STEPS.length) ? 500 : 0;
+  return 1250 + mod + best * 20 + wk + mon;
+}
+
 function refreshTantangan() {
   const best = store.get('ailearn-quiz-best', 0);
-  const fill = $('#chqFill');
-  if (fill) fill.style.width = (best / CONTENT.quiz.length * 100) + '%';
-  const note = $('#chqNote');
-  if (note) note.textContent = best ? `Tersisa ${CONTENT.quiz.length - best} soal · Best skor ${best}/${CONTENT.quiz.length}` : 'Belum dicoba';
-  const xp = 1250 + store.get('ailearn-quiz-best', 0) * 20;
-  const xpTotal = $('#xpTotal');
-  if (xpTotal) xpTotal.textContent = xp.toLocaleString('id-ID');
+  const qFill = $('#chqFill');
+  if (qFill) qFill.style.width = (best / CONTENT.quiz.length * 100) + '%';
+  const qNote = $('#chqNote');
+  if (qNote) qNote.textContent = best ? `Tersisa ${CONTENT.quiz.length - best} soal · Best ${best}/${CONTENT.quiz.length}` : 'Belum dicoba';
+
+  const wk = store.get(WEEK_KEY, []).length;
+  const wFill = $('#chWFill');
+  if (wFill) wFill.style.width = (Math.min(wk, 3) / 3 * 100) + '%';
+  const wNote = $('#chWNote');
+  if (wNote) wNote.textContent = wk >= 3 ? 'Selesai ✓ · +150 XP' : `${wk} dari 3 prompt`;
+
+  const mon = store.get(MON_KEY, []).length;
+  const mFill = $('#chMFill');
+  if (mFill) mFill.style.width = (mon / MON_STEPS.length * 100) + '%';
+  const mNote = $('#chMNote');
+  if (mNote) mNote.textContent = mon >= MON_STEPS.length ? 'Selesai ✓ · +500 XP' : `${mon} dari ${MON_STEPS.length} tahap`;
+
+  const xp = totalXP().toLocaleString('id-ID');
+  const t1 = $('#xpTotal'); if (t1) t1.textContent = xp;
+  const t2 = $('#achXP'); if (t2) t2.textContent = xp;
+}
+
+function openWeekly() {
+  const prompts = store.get(WEEK_KEY, []);
+  $('#pg-weekly').innerHTML = `
+    <div class="back-row">
+      <button class="icon-btn" data-go="tantangan" aria-label="Kembali ke tantangan">${ARROW_L}</button>
+      <button class="head-link" data-go="tantangan">Kembali ke Tantangan</button>
+    </div>
+    <article class="card read-doc">
+      <small class="read-meta">Tantangan Mingguan · Tersisa 3 hari</small>
+      <h1 class="read-title">3 Prompt Terbaikmu</h1>
+      <p class="read-hero">Kumpulkan 3 prompt yang paling membantu pekerjaanmu minggu ini. Lengkapnya, +150 XP — dan kamu punya awal perpustakaan prompt pribadi.</p>
+      <div class="wk-form">
+        <textarea id="wkInput" placeholder="Tempel atau tulis promptmu di sini…" maxlength="600"></textarea>
+        <button class="btn btn-primary" id="wkAdd">Tambahkan Prompt</button>
+      </div>
+      <div class="wk-list">
+        ${prompts.length ? prompts.map((p, i) => `
+          <div class="wk-item">
+            <span class="wk-num">${i + 1}</span>
+            <p>${esc(p)}</p>
+            <button class="mini-btn" data-wkdel="${i}" aria-label="Hapus prompt">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>`).join('') : '<div class="notes-empty">Belum ada prompt.<br>Mulai dari yang kamu pakai hari ini ✧</div>'}
+      </div>
+      <div class="pbox">
+        <strong>Ciri Prompt yang Berharga</strong>
+        <ul>
+          <li>${CHECK_SVG}<span>Muatau jelas: peran, tugas, format sebut apa saja yang ia hasilkan.</span></li>
+          <li>${CHECK_SVG}<span>Dipakai lebih dari sekali — prompt latent jarang layak dihafalmudah.</span></li>
+          <li>${CHECK_SVG}<span>Bisa dijadikan templat: ganti variabelnya dan tetap bekerja.</span></li>
+        </ul>
+      </div>
+    </article>`;
+
+  $('#wkAdd').addEventListener('click', () => {
+    const ta = $('#wkInput');
+    const text = ta.value.trim();
+    if (!text) { showToast('Tulis promptnya dulu ✧'); return; }
+    const arr = store.get(WEEK_KEY, []);
+    const before = arr.length;
+    arr.unshift(text);
+    const kept = arr.slice(0, 3);
+    store.set(WEEK_KEY, kept);
+    if (before < 3 && kept.length >= 3) showToast('✦ 3 prompt terkumpul — +150 XP!');
+    else showToast(`✦ Prompt ${Math.min(kept.length, 3)}/3 tersimpan!`);
+    refreshTantangan();
+    openWeekly();
+  });
+  $$('#pg-weekly [data-wkdel]').forEach(b => {
+    b.addEventListener('click', () => {
+      const arr = store.get(WEEK_KEY, []);
+      arr.splice(+b.dataset.wkdel, 1);
+      store.set(WEEK_KEY, arr);
+      refreshTantangan();
+      openWeekly();
+    });
+  });
+  routeTo('weekly');
+}
+
+function openMonthly() {
+  const done = new Set(store.get(MON_KEY, []));
+  const allDone = done.size === MON_STEPS.length;
+  $('#pg-monthly').innerHTML = `
+    <div class="back-row">
+      <button class="icon-btn" data-go="tantangan" aria-label="Kembali ke tantangan">${ARROW_L}</button>
+      <button class="head-link" data-go="tantangan">Kembali ke Tantangan</button>
+    </div>
+    <article class="card read-doc">
+      <small class="read-meta">Tantangan Bulanan · Tersisa 19 hari</small>
+      <h1 class="read-title">Mini-Project Chatbot</h1>
+      <p class="read-hero">Selesaikan 4 tahap untuk meluncurkan chatbot kecil versimu sendiri. Selesai semua: +500 XP dan satu karya nyata untuk portfolio-mu.</p>
+      <div class="task-list">
+        ${MON_STEPS.map((s, i) => `
+          <button class="task-row ${done.has(i) ? 'done' : ''}" data-mon="${i}">
+            <span class="task-check">${done.has(i) ? CHECK_SVG : ''}</span>
+            <span class="mod-main"><h3>${s.t}</h3><small>${s.d}</small></span>
+          </button>`).join('')}
+      </div>
+      ${allDone ? '<div class="pbox done-box"><strong>Tantangan selesai!</strong><ul><li>' + CHECK_SVG + '<span>+500 XP sudah diakui — karya kecilmu kini punya alur UI → mesin → memori → uji.</span></li></ul></div>' : ''}
+      <div class="mod-ctl">
+        <button class="btn btn-soft" data-refer="chatbot" data-cls="5">Baca Materi Kelasnya</button>
+      </div>
+    </article>`;
+  $$('#pg-monthly [data-mon]').forEach(b => {
+    b.addEventListener('click', () => {
+      const i = +b.dataset.mon;
+      const arr = store.get(MON_KEY, []);
+      const ix = arr.indexOf(i);
+      if (ix >= 0) arr.splice(ix, 1); else arr.push(i);
+      const was = monCompleted();
+      store.set(MON_KEY, arr);
+      const now = arr.length >= MON_STEPS.length;
+      showToast(now && !was ? '✦ Project tuntas — +500 XP! Tambah karyamu ke catatan dan komunitas.' : `✦ Tahap ${arr.length}/${MON_STEPS.length} tersimpan.`);
+      refreshTantangan();
+      openMonthly();
+    });
+  });
+  routeTo('monthly');
+}
+
+function monCompleted() {
+  return store.get(MON_KEY, []).length >= MON_STEPS.length;
 }
 
 $('#kelasFilters').addEventListener('click', e => {
