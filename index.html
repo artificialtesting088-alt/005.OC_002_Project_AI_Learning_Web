@@ -16,10 +16,6 @@
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <aside class="sidebar" id="sidebar">
-    <button class="icon-btn sidebar-close" id="sidebarClose" aria-label="Tutup menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
-
     <div class="brand">
       <div class="brand-mark">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
@@ -122,7 +118,7 @@
             </span>
             <span class="profile-text">
               <small>Halo,</small>
-              <strong>Anonim</strong>
+              <strong id="profileName">Anonim</strong>
             </span>
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
@@ -136,6 +132,8 @@
     </header>
 
     <main class="content">
+
+    <div class="page" id="pg-beranda">
 
       <section class="hero card dark">
         <div class="hero-copy">
@@ -238,8 +236,8 @@
                 <rect x="312" y="120" width="28" height="20" rx="3"/>
                 <rect x="368" y="140" width="22" height="16" rx="3"/>
               </g>
-              <text x="326" y="135" font-size="12" fill="#5CE0F8" text-anchor="middle" font-weight="700">未来</text>
-              <text x="379" y="153" font-size="9" fill="#5CE0F8" text-anchor="middle" font-weight="700">学</text>
+              <text x="326" y="135" font-size="11" fill="#5CE0F8" text-anchor="middle" font-weight="700">AI</text>
+              <text x="379" y="153" font-size="9" fill="#5CE0F8" text-anchor="middle" font-weight="700">ML</text>
             </g>
             <g class="bridge">
               <path d="M20 216 Q280 176 540 216" fill="none" stroke="#141B3D" stroke-width="5"/>
@@ -294,11 +292,11 @@
             </g>
           </svg>
           <div class="float-chip chip-top">
-            <strong>未来へ、一緒に。</strong>
-            <span>A Kinder, Together.</span>
+            <strong>To the future, together.</strong>
+            <span>A Kinder, Tomorrow.</span>
           </div>
           <div class="float-chip chip-sign">
-            <strong>未来は、きっと愛になる</strong>
+            <strong>The future will surely be kind</strong>
             <span>A KINDER TOMORROW</span>
           </div>
         </div>
@@ -460,7 +458,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
           </div>
-          <div class="pg-vert v2">共に、学び続ける</div>
+          <div class="pg-vert v2">KEEP LEARNING, TOGETHER</div>
         </article>
 
         <article class="card b-popular">
@@ -522,6 +520,365 @@
         </article>
 
       </section>
+
+    </div>
+
+    <section class="page" id="pg-kelas" hidden>
+      <header class="page-head">
+        <div>
+          <h1 class="page-title">Kelas</h1>
+          <p class="page-sub">Dari dasar sampai proyek nyata — pilih jalurmu.</p>
+        </div>
+        <div class="filter-row" id="kelasFilters">
+          <button class="fchip is-active" data-level="all">Semua</button>
+          <button class="fchip" data-level="pemula">Pemula</button>
+          <button class="fchip" data-level="menengah">Menengah</button>
+          <button class="fchip" data-level="lanjutan">Lanjutan</button>
+        </div>
+      </header>
+      <div class="course-grid">
+        <article class="ccard card" data-level="pemula">
+          <div class="ccard-top t-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.5"/><path d="M5 20c.9-3.5 3.7-5.5 7-5.5s6.1 2 7 5.5"/></svg>
+          </div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-mint">Lanjut</span><span class="tag tag-ghosted">Pemula · 5 modul</span></div>
+            <h3>Kenalan dengan AI di Sekitarmu</h3>
+            <p>Kenali AI yang sudah ada di hidupmu sehari-hari, lalu bedakan AI, ML, dan LLM.</p>
+            <div class="progress-track sm"><div class="progress-fill" style="width:60%"></div></div>
+            <div class="ccard-meta"><small>2.4K peserta</small><button class="ccard-cta" data-action="Lanjut kelas">Lanjut ⌁</button></div>
+          </div>
+        </article>
+        <article class="ccard card" data-level="pemula">
+          <div class="ccard-top t-violet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+          </div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-ruby">Populer</span><span class="tag tag-ghosted">Pemula · 8 modul</span></div>
+            <h3>Prompt Engineering untuk Pemula</h3>
+            <p>Ubah pertanyaan biasa jadi prompt yang tajam: peran, konteks, format, batasan.</p>
+            <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
+            <div class="ccard-meta"><small>12.4K peserta</small><button class="ccard-cta" data-action="Mulai kelas">Mulai ⌁</button></div>
+          </div>
+        </article>
+        <article class="ccard card" data-level="pemula">
+          <div class="ccard-top t-gold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13H11l-1 9L18.5 11H12z"/></svg>
+          </div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-ghosted">Pemula · 6 modul</span></div>
+            <h3>AI untuk Produktivitas Harian</h3>
+            <p>Rapikan jadwal, rangkum dokumen, dan otomatiskan tugas berulang.</p>
+            <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
+            <div class="ccard-meta"><small>9.7K peserta</small><button class="ccard-cta" data-action="Mulai kelas">Mulai ⌁</button></div>
+          </div>
+        </article>
+        <article class="ccard card" data-level="menengah">
+          <div class="ccard-top t-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+          </div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-ghosted">Menengah · 7 modul</span></div>
+            <h3>Membuat Konten dengan AI</h3>
+            <p>Research, draf, dan visual: alur kerja konten yang tetap terasa kamulah yang punya.</p>
+            <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
+            <div class="ccard-meta"><small>8.1K peserta</small><button class="ccard-cta" data-action="Mulai kelas">Mulai ⌁</button></div>
+          </div>
+        </article>
+        <article class="ccard card" data-level="menengah">
+          <div class="ccard-top t-violet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
+          </div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-ghosted">Menengah · 10 modul</span></div>
+            <h3>Dasar Machine Learning</h3>
+            <p>Dari regresi sederhana sampai makna jaringan saraf — tanpa rumus yang bikin pusing dulu.</p>
+            <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
+            <div class="ccard-meta"><small>5.2K peserta</small><button class="ccard-cta" data-action="Mulai kelas">Mulai ⌁</button></div>
+          </div>
+        </article>
+        <article class="ccard card" data-level="lanjutan">
+          <div class="ccard-top t-rose">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/></svg>
+          </div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-cyan">Proyek</span><span class="tag tag-ghosted">Lanjutan · 12 modul</span></div>
+            <h3>Bangun Chatbot Sederhana</h3>
+            <p>Rakit asistenmu sendiri: sengaja kecil, tapi benar-benar jalan di web.</p>
+            <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
+            <div class="ccard-meta"><small>3.8K peserta</small><button class="ccard-cta" data-action="Mulai kelas">Mulai ⌁</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="pg-jelajah" hidden>
+      <header class="page-head">
+        <div>
+          <h1 class="page-title">Jelajah AI</h1>
+          <p class="page-sub">Cuplikan singkat, langsung ke poin — kapan saja.</p>
+        </div>
+      </header>
+      <div class="course-grid">
+        <article class="ccard card">
+          <div class="ccard-top t-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-ghosted">5 menit baca</span></div>
+            <h3>Apa Itu AI?</h3>
+            <p>Peta besarnya: AI, machine learning, dan LLM — dalam bahasa manusia.</p>
+            <button class="ccard-cta read" data-action="Baca: Apa Itu AI">Baca ⌁</button>
+          </div>
+        </article>
+        <article class="ccard card">
+          <div class="ccard-top t-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-ghosted">7 menit baca</span></div>
+            <h3>Cara Kerja LLM</h3>
+            <p>Menebak kata berikutnya, miliaran kali — kenapa itu terdengar pintar.</p>
+            <button class="ccard-cta read" data-action="Baca: Cara Kerja LLM">Baca ⌁</button>
+          </div>
+        </article>
+        <article class="ccard card">
+          <div class="ccard-top t-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-ghosted">6 menit baca</span></div>
+            <h3>Resep Prompt</h3>
+            <p>Peran, konteks, format, batasan — empat sahabat prompt yang baik.</p>
+            <button class="ccard-cta read" data-action="Baca: Resep Prompt">Baca ⌁</button>
+          </div>
+        </article>
+        <article class="ccard card">
+          <div class="ccard-top t-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.2 3.4-5 6.5-5s5.7 1.8 6.5 5"/><circle cx="17" cy="9.5" r="2.5"/><path d="M16.5 15.2c2.6.3 4.4 1.8 5 4.8"/></svg></div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-ghosted">8 menit baca</span></div>
+            <h3>Etika &amp; Bias AI</h3>
+            <p>AI belajar dari manusia — termasuk kesalahan kami. Apa yang bisa dibenahi?</p>
+            <button class="ccard-cta read" data-action="Baca: Etika dan Bias AI">Baca ⌁</button>
+          </div>
+        </article>
+        <article class="ccard card">
+          <div class="ccard-top t-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-ghosted">Direfresh tiap bulan</span></div>
+            <h3>Peta Tools AI</h3>
+            <p>Chat, gambar, kode, suara: apa yang pas untuk kebutuhanmu hari ini.</p>
+            <button class="ccard-cta read" data-action="Baca: Peta Tools AI">Baca ⌁</button>
+          </div>
+        </article>
+        <article class="ccard card">
+          <div class="ccard-top t-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1 0-2.9-.8-.8-2.2-.8-3 -.1z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.9C13.6 4.4 17.5 2.2 22 2c-.2 4.5-2.4 8.4-6.1 11A22 22 0 0 1 12 15z"/></svg></div>
+          <div class="ccard-body">
+            <div class="tag-row"><span class="tag tag-ghosted">10 menit baca</span></div>
+            <h3>Karier di Era AI</h3>
+            <p>Skill yang makin berharga, dan cara membangunnya mulai malam ini.</p>
+            <button class="ccard-cta read" data-action="Baca: Karier di Era AI">Baca ⌁</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="pg-komunitas" hidden>
+      <header class="page-head">
+        <div>
+          <h1 class="page-title">Komunitas</h1>
+          <p class="page-sub">Tanya, berbagi progres, saling semangat.</p>
+        </div>
+      </header>
+      <div class="comm-grid">
+        <div class="comm-main">
+          <article class="card composer-card">
+            <span class="avatar avatar-lg">
+              <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="#38E1FF" stroke="#0D1528" stroke-width="2"/><circle cx="11" cy="14" r="2" fill="#0D1528"/><circle cx="21" cy="14" r="2" fill="#0D1528"/><path d="M12 21q4 3 8 0" stroke="#0D1528" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+            </span>
+            <div class="composer">
+              <textarea id="composerInput" placeholder="Apa yang sedang kamu pelajari hari ini…" maxlength="280"></textarea>
+              <div class="composer-actions">
+                <small id="charCount">0/280</small>
+                <button class="btn btn-primary btn-sm" id="btnPost">Bagikan</button>
+              </div>
+            </div>
+          </article>
+          <div class="feed" id="feed">
+            <article class="card post">
+              <header class="post-head">
+                <span class="avatar" style="background:#FFE9F0"><b>S</b></span>
+                <div><div class="post-name">Sari</div><div class="post-time">2 jam lalu</div></div>
+                <button class="like" type="button" data-n="24" aria-label="Suka"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C7 16.5 3 13 3 8.8 3 6 5.2 4 7.8 4c1.8 0 3.3 1 4.2 2.6C12.9 5 14.4 4 16.2 4 18.8 4 21 6 21 8.8c0 4.2-4 7.7-9 12.2z"/></svg><span>24</span></button>
+              </header>
+              <p>Akhirnya paham bedanya AI, machine learning, dan LLM. Modul 1 bantu banget — penjelasannya sesederhana ini!</p>
+              <footer class="post-foot"><span>8 balasan</span><span>#dasar-ai</span></footer>
+            </article>
+            <article class="card post">
+              <header class="post-head">
+                <span class="avatar" style="background:#EDE9FF"><b>T</b></span>
+                <div><div class="post-name">Tomo</div><div class="post-time">5 jam lalu</div></div>
+                <button class="like" type="button" data-n="17" aria-label="Suka"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C7 16.5 3 13 3 8.8 3 6 5.2 4 7.8 4c1.8 0 3.3 1 4.2 2.6C12.9 5 14.4 4 16.2 4 18.8 4 21 6 21 8.8c0 4.2-4 7.7-9 12.2z"/></svg><span>17</span></button>
+              </header>
+              <p>Prompt yang saya pakai untuk menyusun jadwal belajar ternyata jauh lebih rapi setelah sebutkan formatnya. Trik kecil, hasil besar.</p>
+              <footer class="post-foot"><span>5 balasan</span><span>#prompt</span></footer>
+            </article>
+            <article class="card post">
+              <header class="post-head">
+                <span class="avatar" style="background:#FFF4DC"><b>D</b></span>
+                <div><div class="post-name">Dimas</div><div class="post-time">kemarin</div></div>
+                <button class="like" type="button" data-n="31" aria-label="Suka"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C7 16.5 3 13 3 8.8 3 6 5.2 4 7.8 4c1.8 0 3.3 1 4.2 2.6C12.9 5 14.4 4 16.2 4 18.8 4 21 6 21 8.8c0 4.2-4 7.7-9 12.2z"/></svg><span>31</span></button>
+              </header>
+              <p>Baru selesai modul Kenalan dengan AI. Lanjut ke Prompt Engineering minggu depan — teman yang mau jalan bareng?</p>
+              <footer class="post-foot"><span>12 balasan</span><span>#progress</span></footer>
+            </article>
+          </div>
+        </div>
+        <aside class="comm-side">
+          <article class="card stat-card">
+            <h2>Minggu Ini</h2>
+            <div class="stat-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.2 3.4-5 6.5-5s5.7 1.8 6.5 5"/></svg><span>Anggota aktif</span><strong data-count="10400" data-format="10.4K">10.4K</strong></div>
+            <div class="stat-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/></svg><span>Diskusi baru</span><strong>1.240</strong></div>
+            <div class="stat-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg><span>Event bulan ini</span><strong>8</strong></div>
+          </article>
+          <article class="card event-card">
+            <h2>Event Terdekat</h2>
+            <strong class="event-title">AI Learn Meetup #12</strong>
+            <small class="event-meta">Sabtu, 19.00 WIB · Online</small>
+            <p>Sesi review prompt bareng — bawa promptmu yang paling favorit, kita bedah ramah-ramah.</p>
+            <button class="btn btn-primary btn-sm" data-action="Daftar event">Daftar Hadir</button>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page" id="pg-tantangan" hidden>
+      <header class="page-head">
+        <div>
+          <h1 class="page-title">Tantangan</h1>
+          <p class="page-sub">Rutinitas kecil, dampak besar — kumpulkan XP-nya.</p>
+        </div>
+        <span class="xp-total">Total XP kamu: <strong>1.250</strong></span>
+      </header>
+      <div class="ch-grid">
+        <article class="card ch-card">
+          <header class="ch-head">
+            <span class="ch-ico t-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span>
+            <div><h3>Quiz Harian: Dasar AI</h3><small>Berakhir dalam 8 jam</small></div>
+            <span class="xp">+50 XP</span>
+          </header>
+          <div class="progress-track sm"><div class="progress-fill" style="width:60%"></div></div>
+          <footer class="ch-foot"><small>3 dari 5 soal</small><button class="btn btn-soft" data-action="Lanjutkan quiz">Lanjutkan</button></footer>
+        </article>
+        <article class="card ch-card">
+          <header class="ch-head">
+            <span class="ch-ico t-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
+            <div><h3>Tantangan Mingguan: 3 Prompt Terbaik</h3><small>Tersisa 3 hari</small></div>
+            <span class="xp">+150 XP</span>
+          </header>
+          <div class="progress-track sm"><div class="progress-fill" style="width:33%"></div></div>
+          <footer class="ch-foot"><small>1 dari 3 prompt</small><button class="btn btn-soft" data-action="Lanjutkan tantangan">Lanjutkan</button></footer>
+        </article>
+        <article class="card ch-card">
+          <header class="ch-head">
+            <span class="ch-ico t-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span>
+            <div><h3>Tantangan Bulanan: Mini-Project Chatbot</h3><small>Tersisa 19 hari</small></div>
+            <span class="xp">+500 XP</span>
+          </header>
+          <div class="progress-track sm"><div class="progress-fill" style="width:0%"></div></div>
+          <footer class="ch-foot"><small>Belum mulai</small><button class="btn btn-soft" data-action="Mulai project">Mulai</button></footer>
+        </article>
+        <article class="card ch-card done">
+          <header class="ch-head">
+            <span class="ch-ico t-mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><h3>Seminggu Konsisten</h3><small>Selesai minggu lalu</small></div>
+            <span class="xp xp-done">+100 XP</span>
+          </header>
+          <p class="ch-done-note">Streak 7 hari terkunci. Lanjutkan minggu ini untuk badge Streak 30!</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="pg-achievement" hidden>
+      <header class="page-head">
+        <div>
+          <h1 class="page-title">Achievement</h1>
+          <p class="page-sub">Koleksi lencana perjalananmu — pelan-pelan, pasti tiba.</p>
+        </div>
+      </header>
+      <div class="ach-stats">
+        <article class="card ach-stat"><strong>1.250</strong><span>Total XP</span></article>
+        <article class="card ach-stat"><strong>7 hari</strong><span>Streak belajar</span></article>
+        <article class="card ach-stat"><strong>3/18</strong><span>Badge terkumpul</span></article>
+        <article class="card ach-stat"><strong>1/6</strong><span>Kelas selesai</span></article>
+      </div>
+      <div class="hex-grid">
+        <article class="card hex-cell">
+          <div class="hex hex-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1 0-2.9-.8-.8-2.2-.8-3 -.1z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.9C13.6 4.4 17.5 2.2 22 2c-.2 4.5-2.4 8.4-6.1 11A22 22 0 0 1 12 15z"/></svg></div>
+          <div><h3>Explorer</h3><p>Selesaikan kelas pertamamu.</p><small>Terbuka</small></div>
+        </article>
+        <article class="card hex-cell">
+          <div class="hex hex-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l8-8a2.85 2.85 0 1 1 4 4l-8 8M7 15c-1.7 0-3 1.3-3 3 0 1.3-2.5 1.5-2 2 1 1.1 2.5 2 4 2 2.2 0 4-1.8 4-4a3 3 0 0 0-3-3z"/></svg></div>
+          <div><h3>Creator</h3><p>Rilis 3 karya di AI Playground.</p><small>Terbuka</small></div>
+        </article>
+        <article class="card hex-cell">
+          <div class="hex hex-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6 6.6 1-4.8 4.6 1.2 6.6L12 17l-5.9 3.2 1.2-6.6L2.5 9l6.6-1z"/></svg></div>
+          <div><h3>Consistent</h3><p>7 hari belajar beruntun.</p><small>Terbuka</small></div>
+        </article>
+        <article class="card hex-cell locked">
+          <div class="hex hex-locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+          <div><h3>Quiz Master</h3><p>Jawab 150 soal quiz.</p><small>400/1500</small></div>
+        </article>
+        <article class="card hex-cell locked">
+          <div class="hex hex-locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+          <div><h3>Streak 30</h3><p>30 hari belajar beruntun.</p><small>7/30</small></div>
+        </article>
+        <article class="card hex-cell locked">
+          <div class="hex hex-locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+          <div><h3>Scholar</h3><p>Selesaikan 5 kelas.</p><small>1/5</small></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="pg-catatan" hidden>
+      <header class="page-head">
+        <div>
+          <h1 class="page-title">Catatan</h1>
+          <p class="page-sub">Ide, insight, dan ringkasan materi — rapi dan milikmu.</p>
+        </div>
+      </header>
+      <div class="notes-grid">
+        <article class="card note-editor">
+          <header class="card-head"><h2>Catatan Baru</h2></header>
+          <input id="noteTitle" type="text" placeholder="Judul catatan…" maxlength="80">
+          <textarea id="noteBody" placeholder="Tulis apa saja: ide, insight, ringkasan materi…"></textarea>
+          <button class="btn btn-primary" id="noteSave">Simpan Catatan</button>
+          <small class="note-hint">Tersimpan di perangkatmu (localStorage), tanpa server.</small>
+        </article>
+        <section class="notes-list" id="notesList" aria-live="polite"></section>
+      </div>
+    </section>
+
+    <section class="page" id="pg-pengaturan" hidden>
+      <header class="page-head">
+        <div>
+          <h1 class="page-title">Pengaturan</h1>
+          <p class="page-sub">Atur akun dan kenyamanan belajarmu.</p>
+        </div>
+      </header>
+      <div class="settings-grid">
+        <article class="card set-card">
+          <h2>Profil</h2>
+          <label>Nama tampilan<input id="setName" type="text" value="Anonim" maxlength="30"></label>
+          <label>Email<input id="setEmail" type="email" value="anonim@ailearn.id"></label>
+          <label>Bahasa antarmuka
+            <select id="setLang"><option value="id">Indonesia</option><option value="en">English</option></select>
+          </label>
+        </article>
+        <article class="card set-card">
+          <h2>Preferensi</h2>
+          <div class="set-row"><span>Notifikasi email</span><label class="switch"><input type="checkbox" id="setNotifEmail" checked><i></i></label></div>
+          <div class="set-row"><span>Suara notifikasi</span><label class="switch"><input type="checkbox" id="setSound"><i></i></label></div>
+          <div class="set-row"><span>Mode kompak</span><label class="switch"><input type="checkbox" id="setCompact"><i></i></label></div>
+          <p class="set-note">Data tersimpan lokal di perangkatmu — demo, tidak ada server.</p>
+          <button class="btn btn-primary" id="setSave">Simpan Perubahan</button>
+        </article>
+      </div>
+    </section>
 
       <footer class="foot">
         <p>✦ AI Learn — dibuat dengan cyan <span class="cy">#38E1FF</span>, langit senja, dan sedikit neon.</p>
