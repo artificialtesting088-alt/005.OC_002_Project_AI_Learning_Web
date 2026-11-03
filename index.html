@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Learn — Belajar AI Untuk Dunia yang Lebih Baik</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230D1528'/%3E%3Cpath d='M16 5l2.2 6.8L25 14l-6.8 2.2L16 23l-2.2-6.8L7 14l6.8-2.2z' fill='%2338E1FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <button class="icon-btn sidebar-close" id="sidebarClose" aria-label="Tutup menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
+      </div>
+      <h1 class="brand-name">Ailearn<span class="badge-ai">AI</span></h1>
+    </div>
+    <p class="brand-tagline">Belajar Hari Ini,<br>Masa Depan Lebih Baik</p>
+
+    <nav class="nav">
+      <a href="#" class="nav-item is-active" data-route="beranda">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg>
+        <span>Beranda</span>
+      </a>
+      <a href="#" class="nav-item" data-route="kelas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h14v18H6a2 2 0 0 1-2-2z"/><path d="M8 3v18"/></svg>
+        <span>Kelas</span>
+      </a>
+      <a href="#" class="nav-item" data-route="jelajah">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>
+        <span>Jelajah AI</span>
+      </a>
+      <a href="#" class="nav-item" data-route="komunitas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.2 3.4-5 6.5-5s5.7 1.8 6.5 5"/><circle cx="17" cy="9.5" r="2.5"/><path d="M16.5 15.2c2.6.3 4.4 1.8 5 4.8"/></svg>
+        <span>Komunitas</span>
+      </a>
+      <a href="#" class="nav-item" data-route="tantangan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v6a4 4 0 0 1-8 0z"/><path d="M8 5H5a3 3 0 0 0 3 5M16 5h3a3 3 0 0 1-3 5"/><path d="M12 13v4M8.5 21h7M10 21l1-4h2l1 4"/></svg>
+        <span>Tantangan</span>
+      </a>
+      <a href="#" class="nav-item" data-route="achievement">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="m8.5 13.5-2 8 5.5-3 5.5 3-2-8"/></svg>
+        <span>Achievement</span>
+      </a>
+      <a href="#" class="nav-item" data-route="catatan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
+        <span>Catatan</span>
+      </a>
+      <div class="nav-gap"></div>
+      <a href="#" class="nav-item" data-route="pengaturan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2" fill="var(--card)"/><circle cx="15" cy="12" r="2" fill="var(--card)"/><circle cx="8" cy="17" r="2" fill="var(--card)"/></svg>
+        <span>Pengaturan</span>
+      </a>
+    </nav>
+
+    <div class="quote-card">
+      <p><em>AI bukan menggantikan manusia, tapi memperluas kemungkinannya.</em></p>
+      <span>— Ailearn</span>
+    </div>
+
+    <div class="mascot-block">
+      <svg class="mascot" viewBox="0 0 120 130" aria-hidden="true">
+        <defs>
+          <linearGradient id="catBody" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D9E6F7"/>
+          </linearGradient>
+        </defs>
+        <path d="M28 44 L20 22 Q34 26 42 36 Z" fill="#2A3160" stroke="#0D1528" stroke-width="3"/>
+        <path d="M92 44 L100 22 Q86 26 78 36 Z" fill="#2A3160" stroke="#0D1528" stroke-width="3"/>
+        <rect x="46" y="10" width="28" height="16" rx="8" fill="#38E1FF" stroke="#0D1528" stroke-width="3"/>
+        <path d="M60 26 Q60 8 74 8" fill="none" stroke="#0D1528" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="60" cy="88" rx="34" ry="36" fill="url(#catBody)" stroke="#0D1528" stroke-width="4"/>
+        <circle cx="60" cy="52" r="26" fill="url(#catBody)" stroke="#0D1528" stroke-width="4"/>
+        <rect x="42" y="46" width="36" height="15" rx="7.5" fill="#0D1528"/>
+        <circle cx="52" cy="53.5" r="3.5" fill="#38E1FF"/>
+        <circle cx="68" cy="53.5" r="3.5" fill="#38E1FF"/>
+        <path d="M56 67 q4 3 8 0" fill="none" stroke="#0D1528" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M94 96 Q112 92 108 76" fill="none" stroke="#0D1528" stroke-width="4" stroke-linecap="round"/>
+        <path d="M32 106 Q40 122 60 124 Q80 122 88 106" fill="#8FD6A8" stroke="#0D1528" stroke-width="3"/>
+        <path d="M60 124 v-10" stroke="#0D1528" stroke-width="2.5"/>
+      </svg>
+      <p class="mascot-caption">A Brighter<br>Human Future<br>with AI <span class="spark">⌁</span></p>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn burger" id="burger" aria-label="Buka menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="search" id="searchBox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="text" id="searchInput" placeholder="Cari materi, kelas, atau apa pun…" autocomplete="off">
+        <kbd id="kbdHint">⌘ K</kbd>
+      </div>
+      <div class="topbar-right">
+        <div class="dropdown" id="bellDropdown">
+          <button class="icon-btn bell" id="bellBtn" aria-label="Notifikasi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 9a6 6 0 0 0-12 0c0 6-2.5 7-2.5 7h17S18 15 18 9z"/><path d="M10 20a2.2 2.2 0 0 0 4 0"/></svg>
+            <span class="dot"></span>
+          </button>
+          <div class="dropdown-panel">
+            <strong>Notifikasi</strong>
+            <p>Belum ada notifikasi baru. Momen yang tenang ✧</p>
+          </div>
+        </div>
+        <div class="dropdown" id="profileDropdown">
+          <button class="profile-chip" id="profileBtn">
+            <span class="avatar">
+              <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="#38E1FF" stroke="#0D1528" stroke-width="2"/><circle cx="11" cy="14" r="2" fill="#0D1528"/><circle cx="21" cy="14" r="2" fill="#0D1528"/><path d="M12 21q4 3 8 0" stroke="#0D1528" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M7 9l3 1M25 9l-3 1" stroke="#0D1528" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <span class="profile-text">
+              <small>Halo,</small>
+              <strong>Anonim</strong>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown-panel">
+            <button class="dropdown-item" data-action="Profil">Profil</button>
+            <button class="dropdown-item" data-action="Pengaturan">Pengaturan</button>
+            <button class="dropdown-item danger" data-action="Keluar">Keluar</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <section class="hero card dark">
+        <div class="hero-copy">
+          <span class="chip chip-light">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
+            AI × Manusia × Masa Depan
+          </span>
+          <h1 class="hero-title">Belajar AI Untuk Dunia yang <em>Lebih Baik</em>.</h1>
+          <p class="hero-desc">Bangun skill, eksplorasi ide, dan ciptakan masa depan bersama komunitas pembelajar yang suportif.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-action="Mulai Belajar">
+              Mulai Belajar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <button class="btn btn-ghost-light" data-action="Lihat Trailer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M10 8.5l5 3.5-5 3.5z" fill="currentColor"/></svg>
+              Lihat Trailer
+            </button>
+          </div>
+          <ul class="hero-stats">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.9-3.5 3.7-5.5 7-5.5s6.1 2 7 5.5"/></svg>
+              <div><strong data-count="10" data-suffix="k+">0k+</strong><span>Pembelajar Aktif</span></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3M7 9h4M7 13h7"/></svg>
+              <div><strong data-count="500" data-suffix="+">0+</strong><span>Modul Interaktif</span></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6M13 4l-2 16"/></svg>
+              <div><strong data-count="50" data-suffix="+">0+</strong><span>Project AI</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-art-wrap">
+          <svg class="hero-art" viewBox="0 0 560 440" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1B2650"/><stop offset=".42" stop-color="#5C55A6"/>
+                <stop offset=".68" stop-color="#D97F86"/><stop offset="1" stop-color="#FFC48F"/>
+              </linearGradient>
+              <radialGradient id="sun" cx=".5" cy=".5" r=".5">
+                <stop offset="0" stop-color="#FFE7BC"/><stop offset=".5" stop-color="#FFB36B" stop-opacity=".85"/>
+                <stop offset="1" stop-color="#FFB36B" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0C1228"/><stop offset="1" stop-color="#262E5C"/>
+              </linearGradient>
+              <linearGradient id="bld" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2C3570"/><stop offset="1" stop-color="#1A2245"/>
+              </linearGradient>
+            </defs>
+            <rect width="560" height="440" fill="url(#sky)"/>
+            <circle cx="205" cy="240" r="120" fill="url(#sun)"/>
+            <circle cx="205" cy="240" r="44" fill="#FFE7B8"/>
+            <g class="twinkle" fill="#CFE9FF">
+              <circle cx="60" cy="40" r="2"/><circle cx="130" cy="70" r="1.6"/><circle cx="300" cy="36" r="2"/>
+              <circle cx="380" cy="60" r="1.4"/><circle cx="470" cy="34" r="2"/><circle cx="520" cy="86" r="1.6"/>
+              <circle cx="420" cy="110" r="1.4"/><circle cx="80" cy="120" r="1.4"/>
+            </g>
+            <g class="clouds" opacity=".9">
+              <path d="M330 120q10-14 26-12 4-12 18-12 16 0 18 14 14 0 14 10H336z" fill="#E8D5F0" opacity=".7"/>
+              <path d="M60 90q8-12 22-10 4-10 16-10 14 0 16 12 12 0 12 8H66z" fill="#E8D5F0" opacity=".55"/>
+            </g>
+            <g class="city-back">
+              <rect x="18" y="180" width="40" height="140" fill="#33407A" opacity=".8"/>
+              <rect x="66" y="150" width="30" height="170" fill="url(#bld)"/>
+              <rect x="452" y="168" width="36" height="152" fill="url(#bld)"/>
+              <rect x="494" y="196" width="42" height="124" fill="#33407A" opacity=".8"/>
+              <g fill="#5CE0F8" opacity=".85">
+                <rect x="72" y="162" width="5" height="7"/><rect x="84" y="162" width="5" height="7"/>
+                <rect x="72" y="180" width="5" height="7"/><rect x="84" y="180" width="5" height="7"/>
+                <rect x="458" y="182" width="5" height="7"/><rect x="470" y="182" width="5" height="7"/>
+                <rect x="458" y="200" width="5" height="7"/><rect x="470" y="200" width="5" height="7"/>
+              </g>
+              <g fill="#FFD166" opacity=".8">
+                <rect x="26" y="196" width="6" height="8"/><rect x="40" y="196" width="6" height="8"/>
+                <rect x="26" y="216" width="6" height="8"/><rect x="500" y="214" width="6" height="8"/>
+                <rect x="514" y="214" width="6" height="8"/><rect x="500" y="234" width="6" height="8"/>
+              </g>
+            </g>
+            <g class="city-mid">
+              <rect x="300" y="150" width="52" height="170" fill="url(#bld)"/>
+              <rect x="356" y="190" width="38" height="130" fill="#2E3872"/>
+              <rect x="264" y="200" width="32" height="120" fill="#2E3872"/>
+              <g fill="#5CE0F8" opacity=".9">
+                <rect x="308" y="164" width="6" height="8"/><rect x="322" y="164" width="6" height="8"/>
+                <rect x="336" y="164" width="6" height="8"/><rect x="308" y="186" width="6" height="8"/>
+                <rect x="322" y="186" width="6" height="8"/><rect x="308" y="208" width="6" height="8"/>
+                <rect x="336" y="208" width="6" height="8"/><rect x="364" y="202" width="5" height="7"/>
+                <rect x="376" y="202" width="5" height="7"/><rect x="270" y="214" width="5" height="7"/>
+                <rect x="282" y="214" width="5" height="7"/><rect x="270" y="234" width="5" height="7"/>
+              </g>
+              <g fill="#FFD166" opacity=".75">
+                <rect x="364" y="222" width="5" height="7"/><rect x="282" y="252" width="5" height="7"/>
+                <rect x="322" y="230" width="6" height="8"/>
+              </g>
+              <g class="neon-sign" fill="none" stroke="#5CE0F8" stroke-width="2.5" opacity=".95">
+                <rect x="312" y="120" width="28" height="20" rx="3"/>
+                <rect x="368" y="140" width="22" height="16" rx="3"/>
+              </g>
+              <text x="326" y="135" font-size="12" fill="#5CE0F8" text-anchor="middle" font-weight="700">未来</text>
+              <text x="379" y="153" font-size="9" fill="#5CE0F8" text-anchor="middle" font-weight="700">学</text>
+            </g>
+            <g class="bridge">
+              <path d="M20 216 Q280 176 540 216" fill="none" stroke="#141B3D" stroke-width="5"/>
+              <g stroke="#141B3D" stroke-width="3">
+                <line x1="70" y1="211" x2="70" y2="228"/><line x1="150" y1="202" x2="150" y2="228"/>
+                <line x1="240" y1="195" x2="240" y2="238"/><line x1="330" y1="195" x2="330" y2="228"/>
+                <line x1="420" y1="202" x2="420" y2="228"/><line x1="500" y1="211" x2="500" y2="228"/>
+              </g>
+            </g>
+            <g class="balloon float-slow">
+              <path d="M452 96 q10-18 26 0 q-4 16-13 20 q-9-4-13-20z" fill="#FF8FA3" stroke="#0D1528" stroke-width="3"/>
+              <path d="M465 116 q-2 8-6 12" stroke="#0D1528" stroke-width="2" fill="none"/>
+            </g>
+            <g class="float-slow d2">
+              <rect x="96" y="140" width="34" height="12" rx="6" fill="#0D1528"/>
+              <path d="M104 140 q9-10 18 0" fill="none" stroke="#0D1528" stroke-width="2.5"/>
+              <circle cx="106" cy="152" r="2" fill="#38E1FF"/><circle cx="120" cy="152" r="2" fill="#38E1FF"/>
+            </g>
+            <rect x="0" y="320" width="560" height="120" fill="url(#floor)"/>
+            <line x1="0" y1="320" x2="560" y2="320" stroke="#38E1FF" stroke-width="2" opacity=".55"/>
+            <g stroke="#0D1528" stroke-width="4" opacity=".9">
+              <line x1="14" y1="332" x2="14" y2="368"/><line x1="70" y1="332" x2="70" y2="368"/>
+              <line x1="130" y1="332" x2="130" y2="368"/><line x1="190" y1="332" x2="190" y2="368"/>
+              <line x1="250" y1="332" x2="250" y2="368"/><line x1="310" y1="332" x2="310" y2="368"/>
+              <line x1="370" y1="332" x2="370" y2="368"/><line x1="430" y1="332" x2="430" y2="368"/>
+              <line x1="490" y1="332" x2="490" y2="368"/>
+            </g>
+            <line x1="10" y1="340" x2="550" y2="340" stroke="#2A3565" stroke-width="6" stroke-linecap="round"/>
+            <g class="plants">
+              <path d="M96 320 q-4-22 6-30 q2 14 6 22 q4-20 12-24 q0 18-4 32z" fill="#4C8C6A" stroke="#0D1528" stroke-width="2.5"/>
+              <path d="M508 320 q-2-18 8-26 q2 12 4 18 q6-14 12-16 q-2 16-6 24z" fill="#4C8C6A" stroke="#0D1528" stroke-width="2.5"/>
+            </g>
+            <g class="cat-fig">
+              <ellipse cx="392" cy="304" rx="22" ry="18" fill="#EFF5FF" stroke="#0D1528" stroke-width="3.5"/>
+              <circle cx="392" cy="274" r="16" fill="#EFF5FF" stroke="#0D1528" stroke-width="3.5"/>
+              <path d="M380 264l-6-12 12 4z" fill="#0D1528"/><path d="M404 264l6-12-12 4z" fill="#0D1528"/>
+              <rect x="382" y="268" width="20" height="9" rx="4.5" fill="#0D1528"/>
+              <circle cx="387" cy="272.5" r="2.4" fill="#38E1FF"/><circle cx="397" cy="272.5" r="2.4" fill="#38E1FF"/>
+              <path d="M410 296 q12-4 10-14" fill="none" stroke="#0D1528" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <g class="girl-fig">
+              <path d="M282 330 q0-30 16-40 q-4-8 2-14 q14-10 24 2 q4 6 0 12 q14 10 16 40 q-30 8-58 0z" fill="#0D1528"/>
+              <circle cx="308" cy="252" r="17" fill="#0D1528"/>
+              <circle cx="308" cy="234" r="8" fill="#38E1FF" stroke="#0D1528" stroke-width="2"/>
+              <path d="M312 246 q10-2 10 8" fill="none" stroke="#38E1FF" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M242 330 h92" stroke="#0D1528" stroke-width="10" stroke-linecap="round"/>
+            </g>
+            <g class="sparkles" fill="#8FF2FF">
+              <path d="M120 250l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" opacity=".9"/>
+              <path d="M440 190l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z" opacity=".8"/>
+              <path d="M196 140l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" opacity=".7"/>
+            </g>
+          </svg>
+          <div class="float-chip chip-top">
+            <strong>未来へ、一緒に。</strong>
+            <span>A Kinder, Together.</span>
+          </div>
+          <div class="float-chip chip-sign">
+            <strong>未来は、きっと愛になる</strong>
+            <span>A KINDER TOMORROW</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="bento">
+        <article class="card b-continue">
+          <header class="card-head">
+            <h2>Lanjutkan Pembelajaran</h2>
+            <button class="head-arrow" data-action="Lanjutkan Pembelajaran" aria-label="Lihat semua">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </header>
+          <div class="module-card">
+            <div class="module-thumb">
+              <svg viewBox="0 0 90 62" aria-hidden="true">
+                <rect width="90" height="62" fill="#8FD0FF"/>
+                <path d="M0 44 L26 24 L48 40 L66 28 L90 44 V62 H0 Z" fill="#3E7B5E"/>
+                <circle cx="20" cy="12" r="6" fill="#FFE7B8"/>
+                <rect x="60" y="6" width="22" height="20" rx="3" fill="#EFF5FF" stroke="#0D1528" stroke-width="2"/>
+                <path d="M66 12l10 0 M66 17l7 0 M66 22l9 0" stroke="#38E1FF" stroke-width="2"/>
+                <path d="M8 40 q4-12 14-16 q-2 10 2 16z" fill="#4C8C6A" stroke="#0D1528" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="module-info">
+              <small>Modul 1</small>
+              <h3>Kenalan dengan AI di Sekitarmu</h3>
+            </div>
+          </div>
+          <div class="module-progress">
+            <div class="progress-track"><div class="progress-fill" style="--w:60%"></div></div>
+            <div class="progress-meta">
+              <span class="progress-note">◆ 3 dari 5 bagian selesai</span>
+              <strong class="progress-pct" data-pct="60">0%</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="card b-playground dark">
+          <header class="card-head">
+            <h2>AI Playground</h2>
+            <button class="head-arrow light" data-action="AI Playground" aria-label="Buka playground">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </header>
+          <p class="pg-desc">Coba berbagai tools AI langsung di browser.</p>
+          <ul class="pg-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/></svg> Chat Assistant</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="15" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m5 19 5-5 3 3 4-4 4 4"/></svg> Image Generator</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg> Code Helper</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg> Voice & Audio</li>
+            <li class="muted">✦ Dan banyak lagi…</li>
+          </ul>
+          <div class="pg-mascot">
+            <svg class="mascot" viewBox="0 0 120 130" aria-hidden="true">
+              <path d="M28 44 L20 22 Q34 26 42 36 Z" fill="#2A3160" stroke="#0D1528" stroke-width="3"/>
+              <path d="M92 44 L100 22 Q86 26 78 36 Z" fill="#2A3160" stroke="#0D1528" stroke-width="3"/>
+              <rect x="46" y="10" width="28" height="16" rx="8" fill="#38E1FF" stroke="#0D1528" stroke-width="3"/>
+              <path d="M60 26 Q60 8 74 8" fill="none" stroke="#0D1528" stroke-width="3" stroke-linecap="round"/>
+              <ellipse cx="60" cy="88" rx="34" ry="36" fill="#FFFFFF" stroke="#0D1528" stroke-width="4"/>
+              <circle cx="60" cy="52" r="26" fill="#FFFFFF" stroke="#0D1528" stroke-width="4"/>
+              <rect x="42" y="46" width="36" height="15" rx="7.5" fill="#0D1528"/>
+              <circle cx="52" cy="53.5" r="3.5" fill="#38E1FF"/><circle cx="68" cy="53.5" r="3.5" fill="#38E1FF"/>
+              <path d="M56 67 q4 3 8 0" fill="none" stroke="#0D1528" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M94 96 Q112 92 108 76" fill="none" stroke="#0D1528" stroke-width="4" stroke-linecap="round"/>
+              <path d="M32 106 Q40 122 60 124 Q80 122 88 106" fill="#8FD6A8" stroke="#0D1528" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="pg-vert">Play ✶ Create ✶ Explore ✶ Repeat</div>
+        </article>
+
+        <article class="card b-progress">
+          <header class="card-head">
+            <h2>Progress Kamu</h2>
+            <button class="head-arrow" data-action="Progress Kamu" aria-label="Detail progress">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </header>
+          <div class="ring-wrap">
+            <div class="ring">
+              <svg viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#E3EEF9" stroke-width="12"/>
+                <circle class="ring-val" cx="60" cy="60" r="48" fill="none" stroke="#38E1FF" stroke-width="12" stroke-linecap="round" stroke-dasharray="301.6" stroke-dashoffset="301.6" transform="rotate(-90 60 60)"/>
+              </svg>
+              <strong class="ring-text" data-pct="42">0%</strong>
+            </div>
+            <p class="ring-label"><strong>5 dari 12 modul</strong> selesai</p>
+          </div>
+          <div class="wisdom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10"/><path d="M12 10C12 6 9 4 5 4c0 5 3 8 7 6z"/><path d="M12 13c0-4 3-6 7-6 0 5-3 8-7 6z"/></svg>
+            <p>“Sedikit demi sedikit, lama-lama jadi bukit.”</p>
+          </div>
+        </article>
+
+        <article class="card b-achv">
+          <header class="card-head">
+            <h2>Achievement</h2>
+            <button class="head-arrow" data-action="Achievement" aria-label="Lihat semua achievement">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </header>
+          <div class="hex-row">
+            <div class="hex-item">
+              <div class="hex hex-cyan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1 0-2.9-.8-.8-2.2-.8-3 -.1z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.9C13.6 4.4 17.5 2.2 22 2c-.2 4.5-2.4 8.4-6.1 11A22 22 0 0 1 12 15z"/><path d="M9 12H4s.5-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.5 4-2c1.1-1.6 0-5 0-5"/></svg>
+              </div>
+              <span>Explorer</span>
+            </div>
+            <div class="hex-item">
+              <div class="hex hex-violet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l8-8a2.85 2.85 0 1 1 4 4l-8 8M7 15c-1.7 0-3 1.3-3 3 0 1.3-2.5 1.5-2 2 1 1.1 2.5 2 4 2 2.2 0 4-1.8 4-4a3 3 0 0 0-3-3z"/></svg>
+              </div>
+              <span>Creator</span>
+            </div>
+            <div class="hex-item">
+              <div class="hex hex-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6 6.6 1-4.8 4.6 1.2 6.6L12 17l-5.9 3.2 1.2-6.6L2.5 9l6.6-1z"/></svg>
+              </div>
+              <span>Consistent</span>
+            </div>
+          </div>
+          <button class="btn btn-soft" data-action="Achievement">Lihat Semua</button>
+          <div class="badge-note">Small Progress, Big Future ✿</div>
+        </article>
+
+        <article class="card b-community dark">
+          <div class="train-art">
+            <svg viewBox="0 0 420 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="tSky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#2A3565"/><stop offset=".5" stop-color="#7C63B0"/>
+                  <stop offset=".8" stop-color="#F29B7D"/><stop offset="1" stop-color="#FFC9A3"/>
+                </linearGradient>
+              </defs>
+              <rect width="420" height="200" fill="url(#tSky)"/>
+              <circle cx="120" cy="150" r="60" fill="#FFB36B" opacity=".45"/>
+              <path d="M0 128 L60 92 L110 118 L170 84 L240 120 L310 92 L380 122 L420 104 V160 H0 Z" fill="#20294F"/>
+              <g fill="#EFF5FF" stroke="#0D1528" stroke-width="3">
+                <rect x="52" y="136" width="150" height="34" rx="10"/>
+              </g>
+              <rect x="60" y="122" width="12" height="20" rx="3" fill="#2A3160" stroke="#0D1528" stroke-width="3"/>
+              <g fill="#FFD98E" stroke="#0D1528" stroke-width="2">
+                <rect x="64" y="142" width="14" height="14" rx="2.5"/><rect x="84" y="142" width="14" height="14" rx="2.5"/>
+                <rect x="104" y="142" width="14" height="14" rx="2.5"/><rect x="124" y="142" width="14" height="14" rx="2.5"/>
+                <rect x="144" y="142" width="14" height="14" rx="2.5"/><rect x="164" y="142" width="14" height="14" rx="2.5"/>
+              </g>
+              <rect x="196" y="140" width="34" height="18" rx="6" fill="#38E1FF" stroke="#0D1528" stroke-width="2.5"/>
+              <circle cx="46" cy="172" r="5" fill="#0D1528"/><circle cx="74" cy="172" r="5" fill="#0D1528"/>
+              <g stroke="#18204A" stroke-width="3"><path d="M0 178 H420"/><path d="M40 178 L20 200M200 178 L180 200M360 178 L340 200"/></g>
+              <path d="M300 168 q-2-14 10-18 q-2 8 2 12 q4-10 10-12 q-2 12-6 18z" fill="#4C8C6A" stroke="#0D1528" stroke-width="2.5"/>
+              <g fill="#FFD98E"><circle cx="220" cy="30" r="1.6"/><circle cx="260" cy="22" r="1.3"/><circle cx="330" cy="34" r="1.6"/><circle cx="390" cy="26" r="1.3"/></g>
+            </svg>
+          </div>
+          <div class="community-copy">
+            <h2>Lebih dari Sekadar Kelas, Ini Perjalanan.</h2>
+            <p>Berama ribuan pembelajar lain kita membangun masa depan lebih baik dengan AI.</p>
+            <button class="btn btn-primary" data-action="Gabung Komunitas">
+              Gabung Komunitas
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <div class="pg-vert v2">共に、学び続ける</div>
+        </article>
+
+        <article class="card b-popular">
+          <header class="card-head">
+            <h2>Kelas Populer</h2>
+            <button class="head-link" data-action="Kelas Populer">
+              Lihat Semua
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </header>
+          <ol class="pop-list">
+            <li>
+              <span class="pop-idx">1</span>
+              <span class="pop-thumb t-cyan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
+              </span>
+              <div class="pop-info">
+                <strong>Prompt Engineering untuk Pemula</strong>
+                <small>12.4K peserta</small>
+              </div>
+              <div class="pop-chart" aria-hidden="true">
+                <i style="height:30%"></i><i style="height:55%"></i><i style="height:40%"></i><i class="hi" style="height:80%"></i><i style="height:60%"></i>
+              </div>
+            </li>
+            <li>
+              <span class="pop-idx">2</span>
+              <span class="pop-thumb t-violet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13H11l-1 9L18.5 11H12z"/></svg>
+              </span>
+              <div class="pop-info">
+                <strong>AI untuk Produktivitas Harian</strong>
+                <small>9.7K peserta</small>
+              </div>
+              <div class="pop-chart" aria-hidden="true">
+                <i style="height:45%"></i><i style="height:35%"></i><i class="hi" style="height:75%"></i><i style="height:50%"></i><i style="height:65%"></i>
+              </div>
+            </li>
+            <li>
+              <span class="pop-idx">3</span>
+              <span class="pop-thumb t-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+              </span>
+              <div class="pop-info">
+                <strong>Membuat Konten dengan AI</strong>
+                <small>8.1K peserta</small>
+              </div>
+              <div class="pop-chart" aria-hidden="true">
+                <i style="height:25%"></i><i class="hi" style="height:70%"></i><i style="height:45%"></i><i style="height:55%"></i><i style="height:35%"></i>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+        <article class="card b-quote dark">
+          <div class="stars" aria-hidden="true"></div>
+          <span class="moon" aria-hidden="true"></span>
+          <blockquote>“Masa depan bukan sesuatu yang ditunggu, tapi sesuatu yang kita bentuk.”</blockquote>
+          <cite>— Ailearn</cite>
+        </article>
+
+      </section>
+
+      <footer class="foot">
+        <p>✦ AI Learn — dibuat dengan cyan <span class="cy">#38E1FF</span>, langit senja, dan sedikit neon.</p>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
