@@ -46,6 +46,16 @@ function esc(s) {
   return d.innerHTML;
 }
 
+function actionMsg(label) {
+  if (/trailer/i.test(label)) return '✦ Trailer sedang disiapkan, tunggu kabarnya!';
+  if (/baca/i.test(label)) return `✦ Artikel <span class="t-sp">${esc(label.replace(/^Baca:\s*/i, ''))}</span> segera tayang`;
+  if (/kelas/i.test(label)) return '✦ Modul lengkap kelasku segera hadir';
+  if (/quiz/i.test(label)) return '✦ Soal berikutnya segera hadir';
+  if (/project/i.test(label)) return '✦ Brief project segera dibuka';
+  if (/daftar|event/i.test(label)) return '✦ Sampai jumpa di Meetup #12!';
+  return `✦ <span class="t-sp">${esc(label)}</span>`;
+}
+
 const sidebar = $('#sidebar');
 const overlay = $('#sidebarOverlay');
 function setSidebar(open) {
@@ -101,9 +111,15 @@ document.addEventListener('click', e => {
     if (!d.contains(e.target)) d.classList.remove('open');
   });
 
+  const go = e.target.closest('[data-go]');
+  if (go) {
+    routeTo(go.dataset.go);
+    return;
+  }
+
   const act = e.target.closest('[data-action]');
   if (act) {
-    showToast(`✦ <span class="t-sp">${esc(act.dataset.action)}</span> — sebentar lagi, ya!`);
+    showToast(actionMsg(act.dataset.action));
     return;
   }
 
